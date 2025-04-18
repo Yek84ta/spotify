@@ -48,14 +48,14 @@ public class User {
         user.followerList.add(this);
     }
 
-    public void createPlaylist(String title, User owner) {
+    public void createPlaylist(String title) {
         if (title == null || title.isEmpty()) {
             throw new IllegalArgumentException("Title cannot be null or empty");
         }
-        if (owner == null) {
+        if (this == null) {
             throw new IllegalArgumentException("Owner cannot be null");
         }
-        this.behavior.createPlaylist(title, owner);
+        this.behavior.createPlaylist(title, this);
     }
 
     public void playMusic(Music music) {
